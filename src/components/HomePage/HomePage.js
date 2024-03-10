@@ -4,8 +4,10 @@ import News from "../News/News";
 import { useStyles } from "./style";
 import BackToTopButton from "../common/BackToTopButton/BackToTopButton";
 import GeneralContext from "../contexts/GeneralContext";
+import { useLocation } from "react-router-dom";
 
-const HomePage = ({ category }) => {
+const HomePage = () => {
+  const { pathname } = useLocation();
   const {
     state: { currentCategory, data },
     onChangeCategory,
@@ -14,7 +16,7 @@ const HomePage = ({ category }) => {
   } = useContext(GeneralContext);
 
   useEffect(() => {
-    onChangeCategory(category);
+    onChangeCategory(pathname === "/" ? "home" : pathname.slice(1));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

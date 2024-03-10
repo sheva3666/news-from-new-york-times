@@ -14,18 +14,16 @@ import { FiltersNames } from "./components/constants";
 import GeneralContextWrapper from "./components/contextWrappers/GeneralContextWrapper";
 
 function App() {
-  const [searchInput, setSearchInput] = useState("");
-
   return (
     <ThemeProvider theme={theme}>
       <GeneralContextWrapper>
-        <Header onSearch={setSearchInput} />
+        <Header />
         <Routes>
           {FiltersNames.map((path) => (
             <Route
               path={`/${path === "home" ? "" : path}`}
               key={path}
-              element={<HomePage category={path} searchInput={searchInput} />}
+              element={<HomePage />}
             />
           ))}
           <Route path={"/globalSearch"} element={<GlobalSearch />} />
