@@ -15,6 +15,7 @@ const HomePage = ({ category }) => {
 
   useEffect(() => {
     onChangeCategory(category);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const classes = useStyles();
