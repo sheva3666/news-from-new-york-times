@@ -13,8 +13,6 @@ const HomePage = ({ category }) => {
     loading,
   } = useContext(GeneralContext);
 
-  console.log(data);
-
   useEffect(() => {
     onChangeCategory(category);
   }, []);
