@@ -1,6 +1,6 @@
-import { makeStyles } from "@mui/styles";
+import { createUseStyles } from "react-jss";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = createUseStyles((theme) => ({
   newsCard: {
     margin: "10px 0px",
     paddingBottom: "10px",

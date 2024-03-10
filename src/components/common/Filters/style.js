@@ -1,6 +1,6 @@
-import { makeStyles } from "@mui/styles";
+import { createUseStyles } from "react-jss";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = createUseStyles((theme) => ({
   container: {
     display: "flex",
     justifyContent: "center",

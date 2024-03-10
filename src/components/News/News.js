@@ -34,12 +34,13 @@ const News = ({
   if (newsError) return <h2>error {newsError}</h2>;
   return (
     <div className={classes.container}>
-      <ModalLayout
-        globalSearch={globalSearch}
-        news={newsDetails}
-        open={openModal}
-        handleClose={() => setOpenModal(false)}
-      />
+      {openModal && (
+        <ModalLayout
+          globalSearch={globalSearch}
+          news={newsDetails}
+          onClose={setOpenModal}
+        />
+      )}
       <Title name={currentCategory.section} />
       <div className={classes.newsBox}>
         {currentNews?.length < 1 ? (

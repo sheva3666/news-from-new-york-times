@@ -1,6 +1,6 @@
-import { makeStyles } from "@mui/styles";
+import { createUseStyles } from "react-jss";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = createUseStyles((theme) => ({
   container: {
     margin: "100px 20px 0 20px",
     maxWidth: "300px",

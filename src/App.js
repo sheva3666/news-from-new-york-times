@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import { ThemeProvider } from "@mui/styles";
+import { ThemeProvider } from "react-jss";
+
 import theme from "./theme";
 
 import GlobalSearch from "./components/GlobalSearch/GlobalSearch";

@@ -1,6 +1,6 @@
-import { makeStyles } from "@mui/styles";
+import { createUseStyles } from "react-jss";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = createUseStyles((theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
