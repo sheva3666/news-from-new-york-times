@@ -1,20 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useStyles } from "./style";
 import { linksCategories } from "../../constants";
-import useTouggleCategories from "../../../hooks/useTouggleCategories";
+import GeneralContext from "../../contexts/GeneralContext";
 
-const Header = ({ onSearch }) => {
-  const { onChooseCategory } = useTouggleCategories();
+const Header = () => {
+  const {
+    state: { searchInput },
+    onChangeCategory,
+    setSearchInput,
+  } = useContext(GeneralContext);
+
   const classes = useStyles();
-  const handleChange = (value) => {
-    onSearch(value);
-  };
 
   return (
     <div className={classes.header}>
       <Link
-        onClick={() => onChooseCategory("home")}
+        onClick={() => onChangeCategory("home")}
         className={classes.navLogo}
         to={"/"}
       >
@@ -24,7 +26,8 @@ const Header = ({ onSearch }) => {
       <div className={classes.navigation}>
         <input
           className={classes.search}
-          onChange={(e) => handleChange(e.target.value)}
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
           type="search"
           placeholder="Search..."
           id=""

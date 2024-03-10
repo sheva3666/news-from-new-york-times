@@ -11,38 +11,27 @@ import Header from "./components/common/Header/Header";
 import Footer from "./components/common/Footer/Footer";
 import { FiltersNames } from "./components/constants";
 
-import { gql, useQuery } from "@apollo/client";
-
-const GET_TEXT_DATA = gql`
-  query Query {
-    getTopNews {
-      copyright
-    }
-  }
-`;
+import GeneralContextWrapper from "./components/contextWrappers/GeneralContextWrapper";
 
 function App() {
   const [searchInput, setSearchInput] = useState("");
-  const {
-    data: footerText,
-    loading: footerLoading,
-    error: footerError,
-  } = useQuery(GET_TEXT_DATA);
 
   return (
     <ThemeProvider theme={theme}>
-      <Header onSearch={setSearchInput} />
-      <Routes>
-        {FiltersNames.map((path) => (
-          <Route
-            path={`/${path === "home" ? "" : path}`}
-            key={path}
-            element={<HomePage category={path} searchInput={searchInput} />}
-          />
-        ))}
-        <Route path={"/globalSearch"} element={<GlobalSearch />} />
-      </Routes>
-      <Footer text={footerText} loading={footerLoading} error={footerError} />
+      <GeneralContextWrapper>
+        <Header onSearch={setSearchInput} />
+        <Routes>
+          {FiltersNames.map((path) => (
+            <Route
+              path={`/${path === "home" ? "" : path}`}
+              key={path}
+              element={<HomePage category={path} searchInput={searchInput} />}
+            />
+          ))}
+          <Route path={"/globalSearch"} element={<GlobalSearch />} />
+        </Routes>
+        <Footer />
+      </GeneralContextWrapper>
     </ThemeProvider>
   );
 }

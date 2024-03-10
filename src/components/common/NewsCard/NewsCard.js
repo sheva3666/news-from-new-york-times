@@ -3,16 +3,16 @@ import Image from "../Image/Image";
 import SecondTitle from "../SecondTitle/SecondTitle";
 import useStyles from "./style";
 
-const NewsCard = ({ news }) => {
+const NewsCard = ({ news, globalSearch }) => {
   const classes = useStyles();
   // get news only with images and choose which one we need
-  const image = !news.multimedia
-    ? ""
-    : news.multimedia !== null && news.multimedia[1];
+  const image =
+    !news.multimedia.length && globalSearch
+      ? ""
+      : news.multimedia !== null && news.multimedia[1];
   return (
     <div className={classes.newsCard}>
-      <Image image={image} />
-
+      {!globalSearch && <Image image={image} />}
       <div className={classes.description}>
         <SecondTitle title={news.title ? news.title : news.headline.main} />
         <div className={classes.urlContainer}>

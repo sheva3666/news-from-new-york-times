@@ -1,11 +1,18 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import { CircularProgress } from "@material-ui/core";
 
 import { Link } from "react-router-dom";
 import { useStyles } from "./style";
+import GeneralContext from "../../contexts/GeneralContext";
 
-const Footer = ({ text, loading, error }) => {
+const Footer = () => {
   const classes = useStyles();
+  const {
+    state: { footerText },
+    error,
+    loading,
+  } = useContext(GeneralContext);
+
   const didMount = useRef(false);
 
   useEffect(() => {
@@ -25,7 +32,7 @@ const Footer = ({ text, loading, error }) => {
               <CircularProgress />
             </div>
           ) : (
-            text?.getTopNews.copyright
+            footerText
           )}
         </div>
       </Link>

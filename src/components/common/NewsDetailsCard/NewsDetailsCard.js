@@ -3,15 +3,16 @@ import Image from "../Image/Image";
 import SecondTitle from "../SecondTitle/SecondTitle";
 import useStyles from "./style";
 
-const NewsDetailsCard = ({ news }) => {
+const NewsDetailsCard = ({ news, globalSearch }) => {
   const classes = useStyles();
   // get news only with images and choose which one we need
   const image = !news.multimedia
     ? ""
     : news.multimedia !== null && news.multimedia[0];
+
   return (
     <div className={classes.newsCard}>
-      <Image image={image} />
+      {!globalSearch && <Image image={image} details />}
 
       <div className={classes.description}>
         <SecondTitle title={news.title ? news.title : news.headline.main} />
@@ -23,7 +24,9 @@ const NewsDetailsCard = ({ news }) => {
             Go to source
           </a>
         </div>
-        <p>The article has been published: {news.byline}</p>
+        <p>
+          The article has been published: {news.byline.original || news.byline}
+        </p>
         <p className={classes.time}>
           Posted:
           {news.updated_date

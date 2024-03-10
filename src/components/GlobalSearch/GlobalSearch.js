@@ -2,30 +2,16 @@ import { useState } from "react";
 import Form from "../common/Form/Form";
 import News from "../News/News";
 import { useStyles } from "./style";
-import { gql, useQuery } from "@apollo/client";
-
-const GET_FILTERED_NEWS = gql`
-  query GetSearchNews($searchItem: String!) {
-    getSearchNews(searchItem: $searchItem) {
-      response {
-        docs {
-          web_url
-          abstract
-          pub_date
-          headline {
-            main
-          }
-        }
-      }
-    }
-  }
-`;
+import { apiUrlTypes, getApiUrl } from "../../utils/getApiUrl";
+import useFetch from "../../hooks/useFetch";
 
 const GlobalSearch = () => {
   const [searchItem, setSearchItem] = useState("");
-  const { data, loading, error } = useQuery(GET_FILTERED_NEWS, {
-    variables: { searchItem: searchItem },
+  const url = getApiUrl({
+    type: apiUrlTypes.global,
+    searchItem,
   });
+  const { data, isLoading, error } = useFetch(url);
 
   const classes = useStyles();
 
@@ -33,9 +19,10 @@ const GlobalSearch = () => {
     <div className={classes.container}>
       <Form setSearchItem={setSearchItem} />
       <News
+        globalSearch
         currentCategory={searchItem}
-        currentNews={data?.getSearchNews?.response?.docs}
-        loadinNews={loading}
+        currentNews={data?.response?.docs}
+        loadinNews={isLoading}
         newsError={error}
       />
     </div>

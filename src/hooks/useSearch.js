@@ -2,7 +2,7 @@
 // and returns the relevant results
 
 function useSearch(data, searchInput) {
-  const currentNews = data?.getFilteredNews?.results.filter(
+  const currentNews = data?.results?.filter(
     (news) => news.multimedia !== null && news?.title.length > 0
   );
   const filteredNews = currentNews?.filter((news) => {
@@ -16,7 +16,7 @@ function useSearch(data, searchInput) {
     }
   });
 
-  return [filteredNews];
+  return filteredNews;
 }
 
 export default useSearch;

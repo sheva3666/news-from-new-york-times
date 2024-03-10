@@ -8,8 +8,13 @@ const useStyles = makeStyles((theme) => ({
   },
 
   img: {
-    width: "90%",
-    height: "90%",
+    width: "100%",
+    height: "100%",
+  },
+
+  detailsImg: {
+    width: "50% !important",
+    height: "50% !important",
   },
 }));
 

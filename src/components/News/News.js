@@ -6,7 +6,13 @@ import NewsCard from "../common/NewsCard/NewsCard";
 import Title from "../common/Title/Title";
 import ModalLayout from "../common/ModalLayout/ModalLayout";
 
-const News = ({ currentNews, loadinNews, newsError, currentCategory }) => {
+const News = ({
+  currentNews,
+  loadinNews,
+  newsError,
+  currentCategory,
+  globalSearch,
+}) => {
   const [openModal, setOpenModal] = useState(false);
   const [newsDetails, setNewsDetails] = useState(null);
   const classes = useStyles();
@@ -29,6 +35,7 @@ const News = ({ currentNews, loadinNews, newsError, currentCategory }) => {
   return (
     <div className={classes.container}>
       <ModalLayout
+        globalSearch={globalSearch}
         news={newsDetails}
         open={openModal}
         handleClose={() => setOpenModal(false)}
@@ -39,8 +46,8 @@ const News = ({ currentNews, loadinNews, newsError, currentCategory }) => {
           <p className={classes.message}>No news Found! Please try againe.</p>
         ) : (
           currentNews?.map((news) => (
-            <div onClick={() => onOpenDetails(news)}>
-              <NewsCard key={news.abstract} news={news} />
+            <div onClick={() => onOpenDetails(news)} key={news.abstract}>
+              <NewsCard globalSearch={globalSearch} news={news} />
             </div>
           ))
         )}

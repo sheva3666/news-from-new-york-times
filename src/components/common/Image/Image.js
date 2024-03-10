@@ -1,11 +1,15 @@
 import React from "react";
 import useStyles from "./style";
 
-const Image = ({ image }) => {
+const Image = ({ image, details }) => {
   const classes = useStyles();
   return (
     <div className={classes.imageContainer}>
-      <img className={classes.img} src={image.url} alt="" />
+      <img
+        className={details ? classes.detailsImg : classes.img}
+        src={image?.url}
+        alt=""
+      />
     </div>
   );
 };
