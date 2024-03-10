@@ -23,4 +23,4 @@ jobs:
       - run: yarn
       - run: yarn build
       - run: npm install -g surge
-      - run: surge --project --domain news-training.surge.sh
+      - run: surge --project ./dist --domain news-training.surge.sh
