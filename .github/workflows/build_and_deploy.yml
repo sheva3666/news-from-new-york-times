@@ -12,7 +12,6 @@ jobs:
     env:
       SURGE_LOGIN: ${{ secrets.SURGE_DOMAIN }}
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-      API_KEY: ${{ secrets.API_KEY }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
