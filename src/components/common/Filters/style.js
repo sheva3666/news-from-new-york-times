@@ -52,6 +52,9 @@ export const useStyles = createUseStyles((theme) => ({
   "@media only screen and (max-width: 700px)": {
     container: {
       flexDirection: "column",
+      alignItems: "center",
+      marginLeft: 0,
+      gap: 5,
     },
   },
 }));

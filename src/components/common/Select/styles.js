@@ -45,4 +45,9 @@ export default createUseStyles({
   arrow: {
     marginTop: 3,
   },
+  "@media only screen and (max-width: 700px)": {
+    selectContainer: {
+      marginLeft: -90,
+    },
+  },
 });

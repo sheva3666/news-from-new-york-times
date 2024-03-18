@@ -24,5 +24,10 @@ const useStyles = createUseStyles((theme) => ({
     fontSize: "30px",
     fontWeight: theme.font.weight.bold,
   },
+  "@media only screen and (max-width: 700px)": {
+    newsBox: {
+      gridTemplateColumns: "auto",
+    },
+  },
 }));
 export default useStyles;
