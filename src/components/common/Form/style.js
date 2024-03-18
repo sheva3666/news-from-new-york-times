@@ -8,7 +8,6 @@ export const useStyles = createUseStyles((theme) => ({
 
   form: {
     display: "flex",
-
     gap: "10px",
   },
 
@@ -29,6 +28,16 @@ export const useStyles = createUseStyles((theme) => ({
     "&:hover": {
       background: theme.colors.primary.main,
       color: theme.colors.secondary.main,
+    },
+  },
+
+  "@media only screen and (max-width: 700px)": {
+    form: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      paddingLeft: 25,
     },
   },
 }));
