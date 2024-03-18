@@ -11,6 +11,7 @@ export default createUseStyles((theme) => ({
     height: "100%",
     overflow: "hidden",
     backgroundColor: "rgba(0,0,0,.5)",
+    transition: "0.5s",
   },
 
   content: {
@@ -28,6 +29,7 @@ export default createUseStyles((theme) => ({
     background: "#fff",
     borderRadius: 30,
     boxShadow: "#fff 0px 5px 18px 0px, #fff 0px 0px 0px 1px",
+    transition: "0.5s",
   },
 
   footer: {

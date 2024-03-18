@@ -25,9 +25,11 @@ const Filters = () => {
         placeholder="Search..."
         id=""
       />
+
       <NavLink className={classes.link} to={`/globalSearch`}>
         {capitalizeFirstLetter(globalSearch)}
       </NavLink>
+
       <Select
         options={options}
         onChange={onChangeCategory}

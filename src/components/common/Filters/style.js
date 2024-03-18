@@ -27,12 +27,14 @@ export const useStyles = createUseStyles((theme) => ({
       background: "rgba(235, 235, 235, 0.815)",
     },
   },
+
   search: {
     width: 295,
     borderRadius: "30px",
     fontSize: "16px",
     padding: "10px 20px",
   },
+
   link: {
     textDecoration: "none",
     display: "flex",
@@ -43,6 +45,7 @@ export const useStyles = createUseStyles((theme) => ({
     borderRadius: "30px",
     padding: "10px 20px",
     width: 250,
+    cursor: "pointer",
     "&:hover": {
       background: theme.colors.secondary.main,
       color: theme.colors.primary.main,
