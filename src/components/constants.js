@@ -1,4 +1,4 @@
-export const linksCategories = ["global search"];
+export const globalSearch = "global search";
 export const FiltersNames = [
   "home",
   "arts",

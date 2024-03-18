@@ -27,7 +27,7 @@ export default createUseStyles((theme) => ({
     border: "1px solid #888",
     background: "#fff",
     borderRadius: 30,
-    boxShadow: "#fff 0px 10px 36px 0px, #fff 0px 0px 0px 1px",
+    boxShadow: "#fff 0px 5px 18px 0px, #fff 0px 0px 0px 1px",
   },
 
   footer: {

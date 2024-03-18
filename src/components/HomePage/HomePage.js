@@ -25,7 +25,7 @@ const HomePage = () => {
   return (
     <div className={classes.container}>
       <div className={classes.leftColumn}>
-        <Filters onChangeCategory={onChangeCategory} />
+        <Filters />
       </div>
       <div className={classes.rightColumn}>
         <News

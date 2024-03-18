@@ -5,8 +5,8 @@ const useStyles = createUseStyles((theme) => ({
     margin: "10px 0px",
     paddingBottom: "10px",
     display: "flex",
-    flexDirection: "column",
     alignItems: "center",
+    gap: 20,
   },
 
   description: {

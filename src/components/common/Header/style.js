@@ -7,13 +7,17 @@ export const useStyles = createUseStyles((theme) => ({
     right: 0,
     padding: "20px 20px",
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     background: theme.colors.secondary.main,
     position: "fixed",
   },
 
   navLogo: {
+    display: "flex",
+    justifyContent: "center",
+    margin: 0,
+    padding: 0,
     color: theme.colors.primary.main,
     fontWeight: theme.font.weight.bold,
     width: "120px",
@@ -21,31 +25,5 @@ export const useStyles = createUseStyles((theme) => ({
     textTransform: "uppercase",
     textDecoration: "none",
     cursor: "pointer",
-  },
-
-  search: {
-    padding: "2px 5px",
-    borderRadius: "10px",
-  },
-
-  navigation: {
-    display: "flex",
-    alignItems: "center",
-    gap: "20px",
-    justifyContent: "flex-end",
-  },
-
-  link: {
-    textDecoration: "none",
-    color: theme.colors.primary.main,
-    textTransform: "uppercase",
-    fontSize: "10px",
-    border: `1px solid ${theme.colors.primary.main}`,
-    borderRadius: "20px",
-    padding: "5px 3px",
-    "&:hover": {
-      background: theme.colors.primary.main,
-      color: theme.colors.secondary.main,
-    },
   },
 }));

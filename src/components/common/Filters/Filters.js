@@ -1,23 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useStyles } from "./style";
-import { FiltersNames } from "../../constants";
+import { FiltersNames, globalSearch } from "../../constants";
+import GeneralContext from "../../contexts/GeneralContext";
+import Select from "../Select/Select";
+import { NavLink } from "react-router-dom";
+import capitalizeFirstLetter from "../../../utils/capitalizeFirstLetter";
 
-const Filters = ({ onChangeCategory }) => {
+const Filters = () => {
+  const {
+    state: { currentCategory, searchInput },
+    onChangeCategory,
+    setSearchInput,
+  } = useContext(GeneralContext);
   const classes = useStyles();
+  const options = FiltersNames.map((name) => ({ value: name, label: name }));
 
   return (
     <div className={classes.container}>
-      {FiltersNames.map((name) => {
-        return (
-          <div
-            key={name}
-            onClick={() => onChangeCategory(name)}
-            className={classes.filter}
-          >
-            {name}
-          </div>
-        );
-      })}
+      <input
+        className={classes.search}
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}
+        type="search"
+        placeholder="Search..."
+        id=""
+      />
+      <NavLink className={classes.link} to={`/globalSearch`}>
+        {capitalizeFirstLetter(globalSearch)}
+      </NavLink>
+      <Select
+        options={options}
+        onChange={onChangeCategory}
+        value={currentCategory.section}
+      />
     </div>
   );
 };
